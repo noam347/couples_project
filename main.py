@@ -8,10 +8,6 @@ state={
 }
 
 
-
-def main():
-
-
 def soldier_new_location(location):
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
@@ -20,11 +16,15 @@ def soldier_new_location(location):
         if event.type==pygame.KEYDOWN:
             if event.key==pygame.K_DOWN:
                 location[1]=location[1]+1
+                print("hy")
             if event.key==pygame.K_RIGHT:
                 location[0]=location[0]+1
+                print("zet")
             if event.key==pygame.K_LEFT:
                 location[0]=location[0]-1
+                print("ct")
             if event.key==pygame.K_UP:
                 location[1]=location[1]-1
+                print("fceta")
 
 
