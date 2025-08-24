@@ -2,16 +2,11 @@ import pygame
 import consts
 import random
 
-
-
-
 pygame.init()
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 pygame.display.set_caption('The flag')
 screen.fill(consts.BACKGROUND_COLOR)
 pygame.display.flip()
-    # return screen
-
 
 
 grass = pygame.image.load(consts.GRASS_IMG)
@@ -41,3 +36,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     pygame.display.update()
+
+
+
