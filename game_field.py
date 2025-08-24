@@ -24,11 +24,15 @@ def random_mines(grid):
     rows = list(rows_range)
     cols = list(cols_range)
     counter=0
-    while counter!=60:
+    while counter!=20:
         row_choice = random.choice(rows)
         col_choice = random.choice(cols)
         if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY and grid[row_choice][col_choice+1]!=[24,46] and grid[row_choice][col_choice+1]!=[24,47]:
             grid[row_choice][col_choice]=consts.MINE
+            grid[row_choice][col_choice+1] = consts.MINE
+            grid[row_choice][col_choice+2] = consts.MINE
+            counter+=1
+
     return grid
 
 def flag_idx(grid):
