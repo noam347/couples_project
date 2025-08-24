@@ -11,6 +11,12 @@ mine = pygame.image.load(consts.MINE_IMG)
 EMPTY = "empty"
 MINE = "mine"
 
+def flag_idx(grid):
+    for i in range(21,24):
+        for j in range(46-50):
+            grid[i][j]=consts.FLAG
+    return grid
+
 
 def game_grid(rows_length,cols_length):
     grid=[]
@@ -32,8 +38,12 @@ def random_mines(grid):
     while counter!=20:
         row_choice = random.choice(rows)
         col_choice = random.choice(cols)
-        if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY and grid[row_choice][col_choice+1]!=[24,46] and grid[row_choice][col_choice+1]!=[24,47]:
+        if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY and grid[row_choice][col_choice]!=[24,46] and grid[row_choice][col_choice]!=[24,47]:
             grid[row_choice][col_choice]=consts.MINE
+            grid[row_choice][col_choice+1] = consts.MINE
+            grid[row_choice][col_choice+2] = consts.MINE
+            counter+=1
+
     return grid
 
 def create_x_ray_board(real_matrix,soldier_location):
@@ -48,16 +58,16 @@ def create_x_ray_board(real_matrix,soldier_location):
     x_ray_screen.blit(soldier,soldier_location)
 
     for row in range(len(real_matrix)):
-        print(real_matrix[row])
         for col in range(len(real_matrix[row])-2):
-            print(real_matrix[row][col])
-            if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine":
+            if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine" and real_matrix[row][col+3] != "mine":
                 x_ray_screen.blit(mine,(col*tile_size,row*tile_size))
 
 grid = game_grid(25,50)
-print(random_mines(grid))
-print(matrix)
-create_x_ray_board(matrix,(0,0))
+grid = flag_idx(grid)
+grid = (random_mines(grid))
+print(grid)
+create_x_ray_board(grid,(0,0))
+
 
 running = True
 while running:
