@@ -1,5 +1,6 @@
 import consts
 import pygame
+import random
 BG = (6, 13, 4)
 GREEN = (21, 63, 31)
 tile_size = consts.WINDOW_HEIGHT//consts.GRID_ROWS
@@ -10,8 +11,30 @@ mine = pygame.image.load(consts.MINE_IMG)
 EMPTY = "empty"
 MINE = "mine"
 
-matrix = [[EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE],
-            [EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,MINE,MINE,MINE]]
+
+def game_grid(rows_length,cols_length):
+    grid=[]
+    for row in range(rows_length):
+        row=[]
+        for col in range(cols_length):
+            col="empty"
+            row.append(col)
+        grid.append(row)
+
+    return grid
+
+def random_mines(grid):
+    rows_range = range(0, consts.GRID_ROWS)
+    cols_range = range(0, consts.GRID_COLUMNS - 2)
+    rows = list(rows_range)
+    cols = list(cols_range)
+    counter=0
+    while counter!=20:
+        row_choice = random.choice(rows)
+        col_choice = random.choice(cols)
+        if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY and grid[row_choice][col_choice+1]!=[24,46] and grid[row_choice][col_choice+1]!=[24,47]:
+            grid[row_choice][col_choice]=consts.MINE
+    return grid
 
 def create_x_ray_board(real_matrix,soldier_location):
     x_ray_screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -31,6 +54,9 @@ def create_x_ray_board(real_matrix,soldier_location):
             if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine":
                 x_ray_screen.blit(mine,(col*tile_size,row*tile_size))
 
+grid = game_grid(25,50)
+print(random_mines(grid))
+print(matrix)
 create_x_ray_board(matrix,(0,0))
 
 running = True

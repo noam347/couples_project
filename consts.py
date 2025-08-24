@@ -8,7 +8,7 @@ WINDOW_WIDTH = 1000
 
 
 SOLDIER_IMG = "soldier.png"
-SOLDIER_NIGTH_IMG = "soldier_night.png"
+SOLDIER_NIGTH_IMG = "soldier_nigth.png"
 EXPLOTION_IMG = "explotion.png"
 MINE_IMG = "mine.png"
 GRASS_IMG = "grass.png"
