@@ -1,9 +1,17 @@
-BG = (4, 10, 2)
-GREEN = (25, 68, 34)
-tile_size = 20
+import consts
+import pygame
+BG = (6, 13, 4)
+GREEN = (21, 63, 31)
+tile_size = consts.WINDOW_HEIGHT//consts.GRID_ROWS
 
 soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
 mine = pygame.image.load(consts.MINE_IMG)
+
+EMPTY = "empty"
+MINE = "mine"
+
+matrix = [[EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE],
+            [EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,EMPTY,EMPTY,MINE,MINE,MINE,EMPTY,MINE,MINE,MINE]]
 
 def create_x_ray_board(real_matrix,soldier_location):
     x_ray_screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -16,12 +24,14 @@ def create_x_ray_board(real_matrix,soldier_location):
 
     x_ray_screen.blit(soldier,soldier_location)
 
-    for row in real_matrix:
-        for col in row:
-            if col == "mine" and (row.index(col)+1) == "mine" and (row.index(col)+2) == "mine":
-                x_ray_screen.blit(mine,(real_matrix.index(row),row.index(col)))
+    for row in range(len(real_matrix)):
+        print(real_matrix[row])
+        for col in range(len(real_matrix[row])-2):
+            print(real_matrix[row][col])
+            if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine":
+                x_ray_screen.blit(mine,(col*tile_size,row*tile_size))
 
-create_x_ray_board(matrix,(20,20))
+create_x_ray_board(matrix,(0,0))
 
 running = True
 while running:
