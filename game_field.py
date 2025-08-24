@@ -19,19 +19,23 @@ def game_grid(rows_length,cols_length):
 
 
 def random_mines(grid):
-    for i in range(19):
-        rows_range=range(0,consts.GRID_ROWS)
-        cols_range=range(0,consts.GRID_COLUMNS-2)
-        rows=list(rows_range)
-        cols=list(cols_range)
-        row_choice=random.choice(rows)
-        col_choice=random.choice(cols)
-        grid[row_choice][col_choice]="mine"
-        rows.remove(row_choice)
-        del cols[col_choice:col_choice+2]
+    rows_range = range(0, consts.GRID_ROWS)
+    cols_range = range(0, consts.GRID_COLUMNS - 2)
+    rows = list(rows_range)
+    cols = list(cols_range)
+    counter=0
+    while counter!=60:
+        row_choice = random.choice(rows)
+        col_choice = random.choice(cols)
+        if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY and grid[row_choice][col_choice+1]!=[24,46] and grid[row_choice][col_choice+1]!=[24,47]:
+            grid[row_choice][col_choice]=consts.MINE
     return grid
 
-
+def flag_idx(grid):
+    for i in range(21,24):
+        for j in range(46-50):
+            grid[i][j]=consts.FLAG
+    return grid
 
 
 def flag_related_index():

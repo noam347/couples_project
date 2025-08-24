@@ -21,3 +21,4 @@ FLAG_IDX=[
 
 MINE="mine"
 EMPTY="empty"
+FLAG="flag"
