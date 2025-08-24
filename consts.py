@@ -1,6 +1,5 @@
 GRID_ROWS = 25
 GRID_COLUMNS = 50
-
 SOLDIER_IMG = "soldier.png"
 SOLDIER_NIGTH_IMG = "soldier_night.png"
 EXPLOTION_IMG = "explotion.png"
