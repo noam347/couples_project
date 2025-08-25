@@ -11,6 +11,8 @@ def game_grid(rows_length,cols_length):
             col="empty"
             row.append(col)
         grid.append(row)
+    grid=flag_idx(grid)
+    grid=random_mines(grid)
 
     return grid
 
