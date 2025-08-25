@@ -4,7 +4,6 @@ import random
 BG = (6, 13, 4)
 GREEN = (21, 63, 31)
 tile_size = consts.WINDOW_HEIGHT//consts.GRID_ROWS
-
 nigth_soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
 mine = pygame.image.load(consts.MINE_IMG)
 

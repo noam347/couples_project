@@ -49,14 +49,14 @@ def create_x_ray_board(real_matrix,soldier_location):
 
 def updated_location(screen,soldier_location):
     screen.blit(soldier, soldier_location)
-    time.sleep(1)
+    time.sleep(3)
 
 
 
 
 
 
-updated_location(create_regular_screen(),[0,0])
+# updated_location(create_regular_screen(),[10,10])
 # grass_height = consts.WINDOW_HEIGHT//consts.GRID_COLUMNS
 # print(grass_height)
 # grass_width = consts.WINDOW_WIDTH//consts.GRID_ROWS
