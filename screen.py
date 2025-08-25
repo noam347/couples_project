@@ -56,6 +56,7 @@ def updated_location(screen,soldier_location):
 
 
 
+
 updated_location(create_regular_screen(),[0,0])
 # grass_height = consts.WINDOW_HEIGHT//consts.GRID_COLUMNS
 # print(grass_height)

@@ -23,22 +23,25 @@ def random_mines(grid):
     cols_range = range(0, consts.GRID_COLUMNS - 2)
     rows = list(rows_range)
     cols = list(cols_range)
+    soldier_body=soldier.soldier_body(soldier.soldier_start_position)
+    soldier_legs=soldier.soldier_legs(soldier.soldier_start_position)
     counter=0
     while counter!=20:
         row_choice = random.choice(rows)
         col_choice = random.choice(cols)
         if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY:
             if grid[row_choice][col_choice]!=[24,46] and grid[row_choice][col_choice]!=[24,47]:
-                grid[row_choice][col_choice]=consts.MINE
-                grid[row_choice][col_choice+1] = consts.MINE
-                grid[row_choice][col_choice+2] = consts.MINE
-                counter+=1
+                if [row_choice,col_choice] not in soldier_legs and [row_choice,col_choice] not in soldier_body:
+                    grid[row_choice][col_choice]=consts.MINE
+                    grid[row_choice][col_choice+1] = consts.MINE
+                    grid[row_choice][col_choice+2] = consts.MINE
+                    counter+=1
 
     return grid
 
 def flag_idx(grid):
     for i in range(21,24):
-        for j in range(46-50):
+        for j in range(46,50):
             grid[i][j]=consts.FLAG
     return grid
 
