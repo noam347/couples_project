@@ -10,7 +10,7 @@ state={
     "soldier_exploded":False,
     "reached_flag":False,
     "game_running":True,
-    "soldier_location":soldier.soldier_start_position
+    "soldier_location":None
 }
 
 def main():
@@ -20,13 +20,16 @@ def main():
     screen.updated_location(game_screen,soldier.soldier_start_position)
     grid=game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
     print(grid)
-    soldier_location=state["soldier_location"]
+    state["soldier_location"]=soldier.soldier_start_position
+    #soldier_location=state["soldier_location"]
     while state["game_running"]:
-        soldier_location=soldier_new_location(game_screen,grass_locations,grid,soldier_location,)
+        soldier_location=soldier_new_location(game_screen,grass_locations,grid,state["soldier_location"])
+        #soldier_location=soldier.soldier_location_grid(state["soldier_location"])
+        print(soldier_location)
         if game_field.flag_reaching(soldier_location,grid):
             state["reached_flag"]=True
         elif game_field.explosion(soldier_location,grid):
-            state["soldier_location"]=True
+            state["game_running"]=True
         if state["reached_flag"]:
             print("you won")
             time.sleep(3)
