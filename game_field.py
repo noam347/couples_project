@@ -38,7 +38,7 @@ def random_mines(grid):
 
 def flag_idx(grid):
     for i in range(21,24):
-        for j in range(46-50):
+        for j in range(46,50):
             grid[i][j]=consts.FLAG
     return grid
 
