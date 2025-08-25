@@ -20,18 +20,19 @@ def randomize_grass_location():
     return  grass_location
 
 
-def add_grass(screen):
-    for i in range(20):
-        screen.blit(grass, (randomize_grass_location()))
+def add_grass(screen,grass_locations):
+    for location in grass_locations:
+        screen.blit(grass,location)
 
 
 
-def create_regular_screen():
+def create_regular_screen(grass_locations):
     pygame.init()
     screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     pygame.display.set_caption('The flag')
     screen.fill(consts.BACKGROUND_COLOR)
-    add_grass(screen)
+    for location in grass_locations:
+        screen.blit(grass, location)
     screen.blit(flag,(46*20,21*20))
     pygame.display.flip()
     return screen
