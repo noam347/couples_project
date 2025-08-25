@@ -29,7 +29,7 @@ def main():
         if game_field.flag_reaching(soldier_location,grid):
             state["reached_flag"]=True
         elif game_field.explosion(soldier_location,grid):
-            state["game_running"]=True
+            state["soldier_exploded"]=True
         if state["reached_flag"]:
             print("you won")
             time.sleep(3)

@@ -31,7 +31,7 @@ def random_mines(grid):
         col_choice = random.choice(cols)
         if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY:
             if grid[row_choice][col_choice]!=[24,46] and grid[row_choice][col_choice]!=[24,47]:
-                if [row_choice,col_choice] not in soldier_legs and [row_choice,col_choice] not in soldier_body:
+                if [row_choice*20,col_choice*20] not in soldier_legs and [row_choice*20,col_choice*20] not in soldier_body:
                     grid[row_choice][col_choice]=consts.MINE
                     grid[row_choice][col_choice+1] = consts.MINE
                     grid[row_choice][col_choice+2] = consts.MINE
