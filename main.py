@@ -44,6 +44,7 @@ def soldier_new_location(game_screen,grid,location):
         if event.type==pygame.KEYDOWN:
             if event.key==pygame.K_DOWN:
                 location[1]=location[1]+20
+                screen.create_regular_screen()
                 screen.updated_location(game_screen, location)
             elif event.key==pygame.K_RIGHT:
                 location[0]=location[0]+20
