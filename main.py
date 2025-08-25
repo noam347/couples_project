@@ -59,7 +59,6 @@ def soldier_new_location(game_screen,grid,location):
                 screen.create_regular_screen()
                 screen.updated_location(game_screen, location)
             elif event.key==pygame.K_KP_ENTER or event.key==pygame.K_RETURN:
-
                 screen.create_x_ray_board(grid,state["soldier_location"])
                 time.sleep(1)
                 screen.create_regular_screen()
