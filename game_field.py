@@ -67,7 +67,6 @@ def flag_reaching(location,grid):
     soldier_place=soldier.soldier_body(location)
     idx_list=flag_related_index(grid)
     for idx in soldier_place:
-        print(idx)
         if idx in idx_list:
             check=True
     return check
