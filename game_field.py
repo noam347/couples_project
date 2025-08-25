@@ -80,6 +80,6 @@ def explosion(location,grid):
             check=True
     return check
 
-print("ikik")
+
 
 
