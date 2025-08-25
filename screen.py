@@ -11,9 +11,13 @@ mine = pygame.image.load(consts.MINE_IMG)
 tile_size = consts.WINDOW_HEIGHT//consts.GRID_ROWS
 
 def randomize_grass_location():
-    x_location = random.randrange(0, consts.WINDOW_WIDTH-60)
-    y_location = random.randrange(0, consts.WINDOW_HEIGHT-60)
-    return  x_location,y_location
+    grass_location = []
+    for i in range(20):
+        x_location = random.randrange(0, consts.WINDOW_WIDTH-60)
+        y_location = random.randrange(0, consts.WINDOW_HEIGHT-60)
+        location = (x_location,y_location)
+        grass_location.append(location)
+    return  grass_location
 
 
 def add_grass(screen):
