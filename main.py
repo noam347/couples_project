@@ -44,16 +44,12 @@ def soldier_new_location(location):
         if event.type==pygame.KEYDOWN:
             if event.key==pygame.K_DOWN:
                 location[1]=location[1]+1
-                print("hy")
             elif event.key==pygame.K_RIGHT:
                 location[0]=location[0]+1
-                print("zet")
             elif event.key==pygame.K_LEFT:
                 location[0]=location[0]-1
-                print("ct")
             elif event.key==pygame.K_UP:
                 location[1]=location[1]-1
-                print("fceta")
             elif event.key==pygame.K_KP_ENTER or event.key==pygame.K_RETURN:
                 screen.create_x_ray_board(grid,state["soldier_location"])
                 time.sleep(1)
