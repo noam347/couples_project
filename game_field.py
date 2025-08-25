@@ -50,7 +50,7 @@ def flag_related_index(grid):
     for row in range(len(grid)):
         for col in range(len(grid[row])):
             if grid[row][col]==consts.FLAG:
-                list_flag_idx.append(grid[row][col])
+                list_flag_idx.append([row,col])
     return list_flag_idx
 
 def mine_related_index(grid):
@@ -58,7 +58,7 @@ def mine_related_index(grid):
     for row in range(len(grid)):
         for col in range(len(grid[row])):
             if grid[row][col]==consts.MINE:
-                list_mine_idx.append(grid[row][col])
+                list_mine_idx.append([row,col])
     return list_mine_idx
 
 
@@ -80,6 +80,6 @@ def explosion(location,grid):
             check=True
     return check
 
-print("ikik")
+
 
 
