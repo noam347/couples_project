@@ -14,6 +14,8 @@ state={
 }
 
 def main():
+    pygame.init()
+    screen.create_regular_screen()
     grid=game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
     soldier_location=state["soldier_location"]
     flag_location=game_field.flag_related_index(grid)
@@ -32,15 +34,7 @@ def main():
             print("you lose")
             time.sleep(3)
             state["game_running"] = False
-
-
-
-
-
-grid = game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
-grid = game_field.flag_idx(grid)
-grid = game_field.random_mines(grid)
-print(grid)
+    print(grid)
 
 
 def soldier_new_location(location):
@@ -67,3 +61,5 @@ def soldier_new_location(location):
     return location
 
 
+if __name__ == '__main__':
+    main()

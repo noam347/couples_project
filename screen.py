@@ -49,7 +49,7 @@ def create_x_ray_board(real_matrix,soldier_location):
 
 def updated_location(screen,soldier_location):
     screen.blit(soldier, soldier_location)
-    time.sleep(1)
+    time.sleep(3)
 
 
 
