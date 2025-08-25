@@ -4,7 +4,7 @@ import consts
 import screen
 import game_field
 import soldier
-
+import time
 
 state={
     "soldier_exploded":False,
@@ -32,5 +32,11 @@ def soldier_new_location(location):
             if event.key==pygame.K_UP:
                 location[1]=location[1]-1
                 print("fceta")
+            elif event.key==pygame.K_KP_ENTER or event.key==pygame.K_RETURN:
+                pygame.display.update()
+                time.sleep(1)
+    return location
+
+
 
 
