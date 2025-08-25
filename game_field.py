@@ -42,23 +42,42 @@ def flag_idx(grid):
             grid[i][j]=consts.FLAG
     return grid
 
+def flag_related_index(grid):
+    list_flag_idx=[]
+    for row in range(len(grid)):
+        for col in range(len(grid[row])):
+            if grid[row][col]==consts.FLAG:
+                list_flag_idx.append(grid[row][col])
+    return list_flag_idx
 
-def flag_related_index():
-    for row in consts.FLAG_IDX:
-        for col in consts.FLAG_IDX[row]:
+def mine_related_index(grid):
+    list_mine_idx=[]
+    for row in range(len(grid)):
+        for col in range(len(grid[row])):
+            if grid[row][col]==consts.MINE:
+                list_mine_idx.append(grid[row][col])
+    return list_mine_idx
 
 
-
-def flag_reaching(location):
+def flag_reaching(location,grid):
     check=False
     soldier_place=soldier.soldier_body(location)
-    for row in consts.FLAG_IDX:
-        for col in consts.FLAG_IDX[row]:
-            for i in soldier_place:
-                for j in soldier_place[row]:
-                    if row==i-1 and col==j-1:
-                        check=True
+    idx_list=flag_related_index(grid)
+    for idx in soldier_place:
+        print(idx)
+        if idx in idx_list:
+            check=True
     return check
 
-def explosion(location):
+def explosion(location,grid):
+    check=False
+    soldier_place=soldier.soldier_legs(location)
+    idx_list=mine_related_index(grid)
+    for idx in soldier_place:
+        if idx in idx_list:
+            check=True
+    return check
+
+
+
 
