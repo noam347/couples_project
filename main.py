@@ -47,23 +47,29 @@ def soldier_new_location(game_screen,grass_locations,grid,location):
                 location[1]=location[1]+20
                 screen.create_regular_screen(grass_locations)
                 screen.updated_location(game_screen, location)
+                print(location)
             elif event.key==pygame.K_RIGHT:
                 location[0]=location[0]+20
                 screen.create_regular_screen(grass_locations)
                 screen.updated_location(game_screen, location)
+                print(location)
             elif event.key==pygame.K_LEFT:
                 location[0]=location[0]-20
+                # if location[0]
                 screen.create_regular_screen(grass_locations)
                 screen.updated_location(game_screen, location)
+                print(location)
             elif event.key==pygame.K_UP:
                 location[1]=location[1]-20
                 screen.create_regular_screen(grass_locations)
                 screen.updated_location(game_screen, location)
+                print(location)
             elif event.key==pygame.K_KP_ENTER or event.key==pygame.K_RETURN:
                 screen.create_x_ray_board(grid,state["soldier_location"])
                 time.sleep(1)
                 screen.create_regular_screen(grass_locations)
                 screen.updated_location(game_screen,location)
+                print(location)
     return location
 
 
