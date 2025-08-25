@@ -25,10 +25,11 @@ def main():
     while state["game_running"]:
         soldier_location=soldier_new_location(game_screen,grass_locations,grid,state["soldier_location"])
         #soldier_location=soldier.soldier_location_grid(state["soldier_location"])
+
         if game_field.flag_reaching(soldier_location,grid):
             state["reached_flag"]=True
         elif game_field.explosion(soldier_location,grid):
-            state["game_running"]=True
+            state["soldier_exploded"]=True
         if state["reached_flag"]:
             print("you won")
             time.sleep(3)
@@ -52,7 +53,6 @@ def soldier_new_location(game_screen,grass_locations,grid,location):
                     location[1]=location[1]+20
                     screen.create_regular_screen(grass_locations)
                     screen.updated_location(game_screen, location)
-                    print(location)
             elif event.key==pygame.K_RIGHT:
                 if location[0] >=940:
                     pass
@@ -60,7 +60,6 @@ def soldier_new_location(game_screen,grass_locations,grid,location):
                     location[0]=location[0]+20
                     screen.create_regular_screen(grass_locations)
                     screen.updated_location(game_screen, location)
-                    print(location)
             elif event.key==pygame.K_LEFT:
                 if location[0] ==-20:
                     pass
@@ -75,13 +74,11 @@ def soldier_new_location(game_screen,grass_locations,grid,location):
                     location[1]=location[1]-20
                     screen.create_regular_screen(grass_locations)
                     screen.updated_location(game_screen, location)
-                    print(location)
             elif event.key==pygame.K_KP_ENTER or event.key==pygame.K_RETURN:
                 screen.create_x_ray_board(grid,state["soldier_location"])
                 time.sleep(1)
                 screen.create_regular_screen(grass_locations)
                 screen.updated_location(game_screen,location)
-                print(location)
     return location
 
 
