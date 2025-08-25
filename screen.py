@@ -34,7 +34,7 @@ def create_regular_screen(grass_locations):
     pygame.display.flip()
     return screen
 
-def create_x_ray_board(real_matrix,soldier_location):
+def create_x_ray_board(grid, soldier_location):
     x_ray_screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     pygame.display.set_caption('The flag')
     x_ray_screen.fill(consts.X_RAY_BACKGROUND)
@@ -46,10 +46,14 @@ def create_x_ray_board(real_matrix,soldier_location):
 
     x_ray_screen.blit(nigth_soldier,soldier_location)
 
-    for row in range(len(real_matrix)):
-        for col in range(len(real_matrix[row])-2):
-            if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine" :
+    taken_tiles = []
+    for row in range(len(grid)):
+        for col in range(len(grid[row]) - 2):
+            if (grid[row][col] == "mine" and grid[row][col+1] == "mine" and grid[row][col+2] == "mine") and [row,col] not in taken_tiles:
                 x_ray_screen.blit(mine,(col*tile_size,row*tile_size))
+                taken_tiles.append([row,col])
+                taken_tiles.append([row, col+1])
+                taken_tiles.append([row, col+2])
     pygame.display.flip()
 
 

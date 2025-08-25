@@ -23,7 +23,6 @@ def main():
     state["soldier_location"]=soldier.soldier_start_position
     while state["game_running"]:
         soldier_location=soldier_new_location(game_screen,grass_locations,grid,state["soldier_location"])
-        #soldier_location=soldier.soldier_location_grid(state["soldier_location"])
         if game_field.flag_reaching(soldier_location,grid):
             state["reached_flag"]=True
         elif game_field.explosion(soldier_location,grid):
