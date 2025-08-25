@@ -62,11 +62,13 @@ def updated_location(screen,soldier_location):
 def draw_lose_message(game_screen):
     draw_message(game_screen,consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE,
                  consts.LOSE_COLOR, consts.LOSE_LOCATION)
+    pygame.display.flip()
 
 
 def draw_win_message(game_screen):
     draw_message(game_screen, consts.WIN_MESSAGE, consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION)
+    pygame.display.flip()
 
 
 def draw_message(screen,message, font_size, color, location):

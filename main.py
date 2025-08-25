@@ -30,14 +30,12 @@ def main():
             state["soldier_exploded"]=True
         if state["reached_flag"]:
             print("you won!")
-            winner = pygame.image.load(consts.WINNER_IMG)
-            game_screen.blit(winner,(100,100))
+            screen.draw_win_message(game_screen)
             time.sleep(3)
             state["game_running"]=False
         elif state["soldier_exploded"]:
             print("you exploded")
-            winner = pygame.image.load(consts.WINNER_IMG)
-            game_screen.blit(winner, (100, 100))
+            screen.draw_lose_message(game_screen)
             time.sleep(3)
             state["game_running"] = False
 
