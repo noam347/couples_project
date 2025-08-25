@@ -27,11 +27,12 @@ def random_mines(grid):
     while counter!=20:
         row_choice = random.choice(rows)
         col_choice = random.choice(cols)
-        if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY and grid[row_choice][col_choice+1]!=[24,46] and grid[row_choice][col_choice+1]!=[24,47]:
-            grid[row_choice][col_choice]=consts.MINE
-            grid[row_choice][col_choice+1] = consts.MINE
-            grid[row_choice][col_choice+2] = consts.MINE
-            counter+=1
+        if grid[row_choice][col_choice]==consts.EMPTY and grid[row_choice][col_choice+1]==consts.EMPTY and grid[row_choice][col_choice+2]==consts.EMPTY:
+            if grid[row_choice][col_choice]!=[24,46] and grid[row_choice][col_choice]!=[24,47]:
+                grid[row_choice][col_choice]=consts.MINE
+                grid[row_choice][col_choice+1] = consts.MINE
+                grid[row_choice][col_choice+2] = consts.MINE
+                counter+=1
 
     return grid
 
