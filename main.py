@@ -14,6 +14,12 @@ state={
 }
 
 
+grid = game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
+grid = game_field.flag_idx(grid)
+grid = game_field.random_mines(grid)
+print(grid)
+
+
 def soldier_new_location(location):
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
@@ -33,10 +39,8 @@ def soldier_new_location(location):
                 location[1]=location[1]-1
                 print("fceta")
             elif event.key==pygame.K_KP_ENTER or event.key==pygame.K_RETURN:
-                pygame.display.update()
+                screen.create_x_ray_board(grid,state["soldier_location"])
                 time.sleep(1)
     return location
 
 
-
-print("h")

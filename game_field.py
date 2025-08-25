@@ -1,5 +1,3 @@
-import pygame
-import main
 import consts
 import soldier
 import random

@@ -5,11 +5,9 @@ BG = (6, 13, 4)
 GREEN = (21, 63, 31)
 tile_size = consts.WINDOW_HEIGHT//consts.GRID_ROWS
 
-soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
+nigth_soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
 mine = pygame.image.load(consts.MINE_IMG)
 
-EMPTY = "empty"
-MINE = "mine"
 
 def flag_idx(grid):
     for i in range(21,24):
@@ -55,7 +53,7 @@ def create_x_ray_board(real_matrix,soldier_location):
     for x in range(0, consts.GRID_COLUMNS * 20, tile_size):
         pygame.draw.lines(x_ray_screen, GREEN, True, ((x, 0), (x, consts.WINDOW_HEIGHT)))
 
-    x_ray_screen.blit(soldier,soldier_location)
+    x_ray_screen.blit(nigth_soldier,soldier_location)
 
     for row in range(len(real_matrix)):
         for col in range(len(real_matrix[row])-2):

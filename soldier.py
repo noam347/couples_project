@@ -16,7 +16,7 @@ def soldier_legs(location):
     soldiers_legs = [[row+3, col], [row+3, col + 1]]
     return soldiers_legs
 
-def soldier_boundaries(location):
+def soldier_within_boundaries(location):
     if location[0] <=( consts.GRID_ROWS-4) and location[1] <=(consts.GRID_COLUMNS-2):
         return True
     else:
