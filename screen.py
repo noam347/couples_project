@@ -23,7 +23,6 @@ def add_grass(screen,grass_locations):
         screen.blit(grass,location)
 
 
-
 def create_regular_screen(grass_locations):
     pygame.init()
     screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -68,6 +67,11 @@ def draw_lose_message(game_screen):
 def draw_win_message(game_screen):
     draw_message(game_screen, consts.WIN_MESSAGE, consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION)
+    pygame.display.flip()
+
+def draw_start_message(game_screen):
+    draw_message(game_screen, consts.START_MESSAGE, consts.START_FONT_SIZE,
+                 consts.START_COLOR, consts.START_LOCATION)
     pygame.display.flip()
 
 

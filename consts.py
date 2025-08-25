@@ -22,7 +22,13 @@ MINE="mine"
 EMPTY="empty"
 FLAG="flag"
 
-FONT_NAME = "Calibri"
+START_MESSAGE = "Welcome to The Flag game. have fun!"
+START_LOCATION = (60,0)
+START_COLOR = (254, 252, 252)
+START_FONT_SIZE = 20
+
+
+FONT_NAME = "arial"
 LOSE_MESSAGE = "You Lost!"
 LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
 LOSE_COLOR = (0,0,0)

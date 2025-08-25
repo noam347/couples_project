@@ -18,8 +18,8 @@ def main():
     grass_locations = screen.randomize_grass_location()
     game_screen = screen.create_regular_screen(grass_locations)
     screen.updated_location(game_screen,soldier.soldier_start_position)
+    screen.draw_start_message(game_screen)
     grid=game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
-    print(grid)
     state["soldier_location"]=soldier.soldier_start_position
     while state["game_running"]:
         soldier_location=soldier_new_location(game_screen,grass_locations,grid,state["soldier_location"])
