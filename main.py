@@ -39,4 +39,4 @@ def soldier_new_location(location):
 
 
 
-
+print("h")
