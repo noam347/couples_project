@@ -67,3 +67,4 @@ def soldier_new_location(location):
     return location
 
 
+print("hi")
