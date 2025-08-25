@@ -5,6 +5,7 @@ import consts
 import random
 grass = pygame.image.load(consts.GRASS_IMG)
 soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
+flag = pygame.image.load(consts.FLAG_IMG)
 nigth_soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
 mine = pygame.image.load(consts.MINE_IMG)
 tile_size = consts.WINDOW_HEIGHT//consts.GRID_ROWS
@@ -19,12 +20,15 @@ def add_grass(screen):
     for i in range(20):
         screen.blit(grass, (randomize_grass_location()))
 
+
+
 def create_regular_screen():
     pygame.init()
     screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     pygame.display.set_caption('The flag')
     screen.fill(consts.BACKGROUND_COLOR)
     add_grass(screen)
+    screen.blit(flag,(46*20,21*20))
     pygame.display.flip()
     return screen
 
@@ -49,9 +53,6 @@ def create_x_ray_board(real_matrix,soldier_location):
 
 def updated_location(screen,soldier_location):
     screen.blit(soldier, soldier_location)
-    time.sleep(3)
-
-
 
 
 

@@ -15,11 +15,11 @@ state={
 
 def main():
     pygame.init()
-    screen.create_regular_screen()
+    game_screen = screen.create_regular_screen()
+    screen.updated_location(game_screen,soldier.soldier_start_position)
     grid=game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
+    print(grid)
     soldier_location=state["soldier_location"]
-    flag_location=game_field.flag_related_index(grid)
-    mines_location=game_field.mine_related_index(grid)
     while state["game_running"]:
         soldier_location=soldier_new_location(soldier_location)
         if game_field.flag_reaching(soldier_location,grid):
@@ -34,7 +34,6 @@ def main():
             print("you lose")
             time.sleep(3)
             state["game_running"] = False
-    print(grid)
 
 
 def soldier_new_location(location):
