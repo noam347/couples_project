@@ -15,8 +15,21 @@ EXPLOTION_IMG = "explotion.png"
 MINE_IMG = "mine.png"
 GRASS_IMG = "grass.png"
 FLAG_IMG = "flag.png"
+WINNER_IMG ="winner.png"
 
 
 MINE="mine"
 EMPTY="empty"
 FLAG="flag"
+
+FONT_NAME = "Calibri"
+LOSE_MESSAGE = "You Lost!"
+LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
+LOSE_COLOR = (0,0,0)
+LOSE_LOCATION = \
+    (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (LOSE_FONT_SIZE / 2))
+WIN_MESSAGE = "You Won!"
+WIN_FONT_SIZE = LOSE_FONT_SIZE
+WIN_COLOR = (0,0,0)
+WIN_LOCATION = \
+    (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (WIN_FONT_SIZE / 2))

@@ -13,7 +13,7 @@ def soldier_body(location):
 def soldier_legs(location):
     row = location[0]
     col = location[1]
-    soldiers_legs = [[row,col+3*20], [col + 1*20,row+3*20]]
+    soldiers_legs = [[row,col+3*20], [row + 1*20,col+3*20]]
     return soldiers_legs
 
 def soldier_within_boundaries(location):
@@ -21,8 +21,3 @@ def soldier_within_boundaries(location):
         return True
     else:
         return False
-
-#def soldier_location_grid(location):
- #   location[0]=location[0]/20
-  #  location[1]=location[1]/20
-   # return location

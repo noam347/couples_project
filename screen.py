@@ -1,5 +1,3 @@
-import time
-
 import pygame
 import consts
 import random
@@ -60,12 +58,21 @@ def updated_location(screen,soldier_location):
     screen.blit(soldier, soldier_location)
     pygame.display.flip()
 
-# grass_height = consts.WINDOW_HEIGHT//consts.GRID_COLUMNS
-# print(grass_height)
-# grass_width = consts.WINDOW_WIDTH//consts.GRID_ROWS
-# print(grass_width)
-# # pygame.transform.scale(grass,(grass_width,grass_height))
-# pygame.transform.scale(grass,(750,500))
+
+def draw_lose_message(game_screen):
+    draw_message(game_screen,consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE,
+                 consts.LOSE_COLOR, consts.LOSE_LOCATION)
+
+
+def draw_win_message(game_screen):
+    draw_message(game_screen, consts.WIN_MESSAGE, consts.WIN_FONT_SIZE,
+                 consts.WIN_COLOR, consts.WIN_LOCATION)
+
+
+def draw_message(screen,message, font_size, color, location):
+    font = pygame.font.SysFont(consts.FONT_NAME, font_size)
+    text_img = font.render(message, True, color)
+    screen.blit(text_img, location)
 
 
 
