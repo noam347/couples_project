@@ -59,7 +59,7 @@ def create_x_ray_board(real_matrix,soldier_location):
 
     for row in range(len(real_matrix)):
         for col in range(len(real_matrix[row])-2):
-            if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine" and real_matrix[row][col+3] != "mine":
+            if real_matrix[row][col] == "mine" and real_matrix[row][col+1] == "mine" and real_matrix[row][col+2] == "mine" :
                 x_ray_screen.blit(mine,(col*tile_size,row*tile_size))
 
 grid = game_grid(25,50)

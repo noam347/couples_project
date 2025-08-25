@@ -1,10 +1,16 @@
 import pygame
 import sys
+import consts
+import screen
+import game_field
+import soldier
+
+
 state={
     "soldier_exploded":False,
     "reached_flag":False,
     "game_running":True,
-    "soldier_location":[0,0]
+    "soldier_location":soldier.soldier_start_position
 }
 
 
