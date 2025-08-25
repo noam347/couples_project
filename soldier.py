@@ -21,8 +21,3 @@ def soldier_within_boundaries(location):
         return True
     else:
         return False
-
-#def soldier_location_grid(location):
- #   location[0]=location[0]/20
-  #  location[1]=location[1]/20
-   # return location

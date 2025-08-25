@@ -21,7 +21,6 @@ def main():
     grid=game_field.game_grid(consts.GRID_ROWS,consts.GRID_COLUMNS)
     print(grid)
     state["soldier_location"]=soldier.soldier_start_position
-    #soldier_location=state["soldier_location"]
     while state["game_running"]:
         soldier_location=soldier_new_location(game_screen,grass_locations,grid,state["soldier_location"])
         #soldier_location=soldier.soldier_location_grid(state["soldier_location"])
@@ -30,11 +29,13 @@ def main():
         elif game_field.explosion(soldier_location,grid):
             state["soldier_exploded"]=True
         if state["reached_flag"]:
-            print("you won")
+            print("you won!")
+            screen.draw_win_message(game_screen)
             time.sleep(3)
             state["game_running"]=False
         elif state["soldier_exploded"]:
-            print("you lose")
+            print("you exploded")
+            screen.draw_lose_message(game_screen)
             time.sleep(3)
             state["game_running"] = False
 
