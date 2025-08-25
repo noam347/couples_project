@@ -4,7 +4,7 @@ import pygame
 import consts
 import random
 grass = pygame.image.load(consts.GRASS_IMG)
-soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
+soldier = pygame.image.load(consts.SOLDIER_IMG)
 flag = pygame.image.load(consts.FLAG_IMG)
 nigth_soldier = pygame.image.load(consts.SOLDIER_NIGTH_IMG)
 mine = pygame.image.load(consts.MINE_IMG)
@@ -53,12 +53,8 @@ def create_x_ray_board(real_matrix,soldier_location):
 
 def updated_location(screen,soldier_location):
     screen.blit(soldier, soldier_location)
+    pygame.display.flip()
 
-
-
-
-
-updated_location(create_regular_screen(),[0,0])
 # grass_height = consts.WINDOW_HEIGHT//consts.GRID_COLUMNS
 # print(grass_height)
 # grass_width = consts.WINDOW_WIDTH//consts.GRID_ROWS
